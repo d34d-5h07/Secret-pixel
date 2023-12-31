@@ -134,6 +134,14 @@ footer {
   bottom: 10px;
 }
 
-a::before {
-  color: #fff;
+a {
+  color: #a9a9b3;
+  text-decoration: none;
+  font-family: "VT323", monospace;
+}
+
+a:visited {
+  color: #a9a9b3;
+  font-family: "VT323", monospace;
+  text-decoration: none;
 }
