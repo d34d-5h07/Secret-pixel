@@ -1,13 +1,15 @@
 from flask import Flask, request, send_file, render_template
-from stegano import lsb 
+from stegano import lsb
 import io
-from PIL import Image , UnidentifiedImageError
+from PIL import Image, UnidentifiedImageError
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/encode', methods=['POST'])
 def encode():
@@ -27,6 +29,7 @@ def encode():
     except Exception as e:
         return "An error occurred"
 
+
 @app.route('/decode', methods=['POST'])
 def decode():
     try:
@@ -35,6 +38,7 @@ def decode():
         return lsb.reveal(image)
     except Exception as e:
         return "No Hidden message found"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
